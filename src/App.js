@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.css';
 
+import Header from './components/Header/Header';
+import LeftNav from './components/Layout/LeftNav';
+
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+
+import 'typeface-roboto';
+
+const useStyles = makeStyles( theme => ({
+
+}));
+
+
 function App() {
+
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   	<Fragment>
+   		<Header />
+
+   		<Grid container>
+    		<Grid item md={3} xs={12}>
+    			<LeftNav />
+    		</Grid>
+    		<Grid item md={9} xs={12}>
+    			<h1>Right Nav, I don't exist yet.</h1>
+    		</Grid>
+    	</Grid>
+   	</Fragment>
   );
 }
 
