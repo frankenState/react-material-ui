@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   icon: {
   	marginRight: theme.spacing(2),
   	color: '#424242'
-  }
+  },
 }));
 
 // MailOutline
@@ -34,7 +34,7 @@ const LeftNav = (props) => {
 	const classes = useStyles();
 
   return (
-    <Fragment>
+    <div>
 		<UserData />
 		<br/>
 		<List 
@@ -60,7 +60,7 @@ const LeftNav = (props) => {
 	        <ListItemText primary="Spam" />
 	      </ListItem>
 	    </List>
-    </Fragment>
+    </div>
   )
 }
 
