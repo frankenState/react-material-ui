@@ -7,6 +7,10 @@ import Fab from '@material-ui/core/Fab';
 import { MuiThemeProvider, createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 
+// https://scotch.io/tutorials/implementing-smooth-scrolling-in-react
+// npm i -S react-scroll
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
 const useStyles = makeStyles( theme => ({
 	greenAvatar: {
 		margin: theme.spacing(1),
@@ -54,6 +58,7 @@ const Scroller = (props) => {
 		};
 	}, [])
 
+
   return (
     <MuiThemeProvider theme={theme}>
     	{ scrollY > 0? (
@@ -67,7 +72,7 @@ const Scroller = (props) => {
 		    		className={classes.container}
 		    	>
 			    	<Fab 
-			    		onClick={() => window.scrollTo(0,0) }
+			    		onClick={() => scroll.scrollToTop() }
 			    		color="primary" 
 			    		className="{classes.greenAvatar}">
 			    		<ArrowUpward />
