@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Grid from '@material-ui/core/Grid';
@@ -44,24 +44,37 @@ const theme = createMuiTheme({
 
 const Scroller = (props) => {
 
+	const [  scrollY, setScrollY ] = useState(window.scrollY);
+
 	const classes = useStyles();
+
+	useEffect(() => {
+		window.onscroll = () => {
+			setScrollY(window.scrollY);
+		};
+	}, [])
 
   return (
     <MuiThemeProvider theme={theme}>
-    	<div
+    	{ scrollY > 0? (
+    		<div
     		className={classes.appBar}
-    	>
-			<Grid
-	    		container
-	    		justify="center"
-	    		alignItems="center"
-	    		className={classes.container}
 	    	>
-		    	<Fab color="primary" className="{classes.greenAvatar}">
-		    		<ArrowUpward />
-	    		</Fab>
-	    	</Grid>
-	    </div>
+				<Grid
+		    		container
+		    		justify="center"
+		    		alignItems="center"
+		    		className={classes.container}
+		    	>
+			    	<Fab 
+			    		onClick={() => window.scrollTo(0,0) }
+			    		color="primary" 
+			    		className="{classes.greenAvatar}">
+			    		<ArrowUpward />
+		    		</Fab>
+		    	</Grid>
+		    </div>
+    	): <span></span> }
     </MuiThemeProvider>
   )
 }
